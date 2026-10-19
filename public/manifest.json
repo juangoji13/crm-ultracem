@@ -1,0 +1,24 @@
+{
+  "name": "CRM Gamificado Ultracem",
+  "short_name": "Ultracem CRM",
+  "description": "Plataforma PWA B2B de Gestión Comercial y Gamificación de Ventas para Ultracem S.A.S.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#003E78",
+  "theme_color": "#003E78",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/images/favicon.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/images/favicon.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    }
+  ]
+}

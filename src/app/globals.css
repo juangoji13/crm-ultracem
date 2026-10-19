@@ -1,26 +1,89 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #F4F6F9;
+  --foreground: #003E78;
+
+  /* Colores Corporativos Ultracem */
+  --ultracem-primary: #003E78;
+  --ultracem-vibrant: #1E83EC;
+  --ultracem-gold: #FFCA00;
+  --ultracem-card-bg: #FFFFFF;
+  --ultracem-surface: #F4F6F9;
+  --ultracem-border: #E0E6ED;
+  --ultracem-text-primary: #003E78;
+  --ultracem-text-secondary: #4A5568;
+
+  /* Semáforo de Recencia y Estado */
+  --ultracem-success: #38A169;
+  --ultracem-warning: #FFCA00;
+  --ultracem-error: #E53E3E;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@theme {
+  --color-ultracem-primary: #003E78;
+  --color-ultracem-vibrant: #1E83EC;
+  --color-ultracem-gold: #FFCA00;
+  --color-ultracem-card: #FFFFFF;
+  --color-ultracem-surface: #F4F6F9;
+  --color-ultracem-border: #E0E6ED;
+  --color-ultracem-text: #003E78;
+  --color-ultracem-muted: #4A5568;
+  --color-ultracem-success: #38A169;
+  --color-ultracem-warning: #FFCA00;
+  --color-ultracem-error: #E53E3E;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--ultracem-surface);
+  color: var(--ultracem-text-primary);
+  font-family: var(--font-montserrat), sans-serif;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Estilos de Botones y Componentes del PRD Ultracem */
+.btn-ultracem-primary {
+  background-color: #003E78;
+  color: #FFFFFF;
+  border-radius: 5px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+.btn-ultracem-primary:hover {
+  background-color: #002B54;
+}
+
+.btn-ultracem-secondary {
+  background-color: #FFFFFF;
+  color: #003E78;
+  border: 1px solid #003E78;
+  border-radius: 5px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+.btn-ultracem-secondary:hover {
+  background-color: #F4F6F9;
+}
+
+.input-ultracem {
+  border: 1px solid #E0E6ED;
+  border-radius: 5px;
+  background-color: #FFFFFF;
+  color: #003E78;
+  padding: 0.625rem 0.875rem;
+  font-size: 0.875rem;
+}
+.input-ultracem:focus {
+  outline: none;
+  border-color: #1E83EC;
+  box-shadow: 0 0 0 2px rgba(30, 131, 236, 0.15);
+}
+
+.card-ultracem {
+  background-color: #FFFFFF;
+  border-radius: 8px;
+  border: 1px solid #E0E6ED;
+  box-shadow: 0px 2px 4px rgba(0, 62, 120, 0.08);
 }
