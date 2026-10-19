@@ -210,7 +210,7 @@ export const LeaderboardView: React.FC<LeaderboardViewProps> = ({
                   onClick={() => setSelectedProduct(prod)}
                   className={`px-3 py-1.5 text-xs font-bold rounded-[5px] transition-all cursor-pointer ${
                     selectedProduct === prod
-                      ? 'bg-[#1E83EC] text-white shadow-xs'
+                      ? 'bg-[#003E78] text-white shadow-xs'
                       : 'bg-slate-100 text-slate-600 hover:bg-slate-200 border border-slate-200'
                   }`}
                 >

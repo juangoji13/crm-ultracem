@@ -35,7 +35,6 @@ import { RewardsCatalogModal } from '@/components/RewardsCatalogModal';
 import { Reward, RedeemedRewardReceipt } from '@/lib/gamification';
 import { Trophy } from 'lucide-react';
 import { AdvisorDashboard } from '@/components/views/AdvisorDashboard';
-import { SupervisorDashboard } from '@/components/views/SupervisorDashboard';
 import { ManagerDashboard } from '@/components/views/ManagerDashboard';
 
 export default function Home() {
@@ -108,15 +107,15 @@ export default function Home() {
       console.warn('Error persistiendo venta en Supabase:', e);
     }
 
-    // Add notification for supervisor
-    const supervisor = users.find((u) => u.role === 'supervisor');
-    if (supervisor) {
+    // Add notification for Gerencia (Auditoría de Ventas)
+    const manager = users.find((u) => u.role === 'gerente');
+    if (manager) {
       const newNotif: NotificationItem = {
         id: `notif-${Date.now()}`,
-        user_id: supervisor.id,
+        user_id: manager.id,
         type: 'info',
-        title: 'Nueva Venta para Validación',
-        message: `${currentUser.name} ha registrado una venta de ${optimisticSale.volume} ${optimisticSale.volume_unit} para ${optimisticSale.client_name}. Remisión #${optimisticSale.document_number}.`,
+        title: 'Nueva Remisión para Auditoría',
+        message: `${currentUser.name} ha registrado una remisión de ${optimisticSale.volume} ${optimisticSale.volume_unit} (${optimisticSale.product_type}) para ${optimisticSale.client_name}. Remisión #${optimisticSale.document_number}.`,
         read: false,
         created_at: 'Ahora',
       };
@@ -251,15 +250,15 @@ export default function Home() {
     // Update in Oracle Supabase
     updateSaleStatus(updatedData.saleId, 'pendiente').catch(() => {});
 
-    // Notify supervisor of resubmission
-    const supervisor = users.find((u) => u.role === 'supervisor');
-    if (supervisor) {
+    // Notify Gerencia of resubmission
+    const manager = users.find((u) => u.role === 'gerente');
+    if (manager) {
       const resubmitNotif: NotificationItem = {
         id: `notif-${Date.now()}`,
-        user_id: supervisor.id,
+        user_id: manager.id,
         type: 'info',
-        title: 'Venta Corregida para Validación',
-        message: `${currentUser.name} ha corregido y reenviado la remisión #${updatedData.document_number} para su validación.`,
+        title: 'Remisión Corregida para Auditoría',
+        message: `${currentUser.name} ha corregido y reenviado la remisión #${updatedData.document_number} para auditoría.`,
         read: false,
         created_at: 'Ahora',
       };
@@ -281,14 +280,8 @@ export default function Home() {
         .forEach((c) => {
           csvContent += `"${c.business_name}","${c.nit}","${c.usual_product}","${c.last_purchase_date || ''}",${c.last_purchase_volume || 0},${currentUser.ultra_points}\n`;
         });
-    } else if (currentUser.role === 'supervisor') {
-      filename = `Reporte_Supervision_Zona_${currentUser.zone}.csv`;
-      csvContent = 'Remision,Asesor,Cliente,Producto,Volumen,Unidad,Valor_COP,Estado,Fecha_Envio\n';
-      sales.forEach((s) => {
-        csvContent += `"${s.document_number}","${s.advisor_name}","${s.client_name}","${s.product_type}",${s.volume},"${s.volume_unit}",${s.total_value_cop},"${s.status}","${s.submitted_at}"\n`;
-      });
     } else {
-      filename = `Reporte_Consolidado_Nacional_Ultracem.csv`;
+      filename = `Reporte_Consolidado_Direccion_Ultracem.csv`;
       csvContent = 'Zona,Remision,Asesor,Cliente,Producto,Volumen,Unidad,Valor_COP,Estado,Fecha\n';
       sales.forEach((s) => {
         csvContent += `"Caribe","${s.document_number}","${s.advisor_name}","${s.client_name}","${s.product_type}",${s.volume},"${s.volume_unit}",${s.total_value_cop},"${s.status}","${s.submitted_at}"\n`;
@@ -585,15 +578,6 @@ export default function Home() {
               />
             )}
 
-            {currentUser.role === 'supervisor' && (
-              <SupervisorDashboard
-                user={currentUser}
-                sales={sales}
-                onApproveSale={handleApproveSale}
-                onRejectSale={handleRejectSale}
-              />
-            )}
-
             {currentUser.role === 'gerente' && (
               <ManagerDashboard
                 user={currentUser}
@@ -601,6 +585,8 @@ export default function Home() {
                 goals={goals}
                 sales={sales}
                 onExportCSV={handleExportCSV}
+                onApproveSale={handleApproveSale}
+                onRejectSale={handleRejectSale}
               />
             )}
           </>

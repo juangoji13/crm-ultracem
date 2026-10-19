@@ -121,55 +121,53 @@ export const LoginModal: React.FC<LoginModalProps> = ({
 
         {/* Cuerpo del Modal */}
         <div className="p-6 space-y-5 overflow-y-auto max-h-[80vh]">
-          {/* Selector de Acceso Rápido / Demo Fill */}
-          <div className="bg-[#F8FAFC] border border-slate-200 rounded-xl p-3.5">
-            <div className="flex items-center justify-between mb-2.5">
-              <span className="text-xs font-bold text-[#003E78] flex items-center gap-1.5">
-                <Sparkles className="w-3.5 h-3.5 text-[#FFCA00] fill-[#FFCA00]" />
-                Demo Fill — Perfiles de Demostración:
+          {/* Ayuda de Acceso para Pruebas (Colapsable y Protegido) */}
+          <details className="bg-slate-50 border border-slate-200 rounded-lg p-2.5 text-xs text-slate-600">
+            <summary className="font-semibold text-[#003E78] cursor-pointer flex items-center justify-between">
+              <span className="flex items-center gap-1.5">
+                <ShieldCheck className="w-3.5 h-3.5 text-[#1E83EC]" />
+                Credenciales de prueba para evaluación (2 Roles)
               </span>
-              <span className="text-[10px] text-slate-500 font-medium">1-Click Auto-Fill</span>
-            </div>
+              <span className="text-[10px] text-slate-400">Ver códigos</span>
+            </summary>
+            <div className="mt-2.5 pt-2 border-t border-slate-200 grid grid-cols-1 sm:grid-cols-2 gap-2">
+              <button
+                type="button"
+                onClick={() => {
+                  setIdentifier('ULTRA-ASE-003');
+                  setPassword('Ultra2026*Ase');
+                  setErrorMessage(null);
+                }}
+                className="text-left p-2 rounded border border-slate-200 bg-white hover:border-[#1E83EC] hover:bg-blue-50/40 transition cursor-pointer"
+              >
+                <div className="flex items-center justify-between">
+                  <span className="font-bold text-slate-800">Hichel Espitia</span>
+                  <span className="text-[9px] px-1.5 py-0.2 rounded-[4px] font-bold uppercase bg-emerald-100 text-emerald-800">
+                    Asesor
+                  </span>
+                </div>
+                <p className="font-mono text-[10px] text-slate-500 mt-0.5">ULTRA-ASE-003</p>
+              </button>
 
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
-              {availableUsers.slice(0, 3).map((u) => {
-                const isSelected =
-                  identifier === (u.employee_code || u.email) ||
-                  (currentSessionUser?.id === u.id && !identifier);
-
-                return (
-                  <button
-                    key={u.id}
-                    type="button"
-                    onClick={() => handleDemoFill(u)}
-                    className={`text-left p-2 rounded-lg border transition-all text-xs ${
-                      isSelected
-                        ? 'border-[#003E78] bg-blue-50/70 shadow-xs ring-1 ring-[#003E78]/20'
-                        : 'border-slate-200 bg-white hover:border-[#1E83EC] hover:bg-slate-50'
-                    }`}
-                  >
-                    <div className="flex items-center justify-between">
-                      <span className="font-bold text-slate-800 truncate block max-w-[90px]">
-                        {u.name.split(' ')[0]} {u.name.split(' ')[1] || ''}
-                      </span>
-                      <span
-                        className={`text-[9px] px-1.5 py-0.2 rounded-[4px] font-bold uppercase ${
-                          u.role === 'gerente'
-                            ? 'bg-amber-100 text-amber-800'
-                            : u.role === 'supervisor'
-                            ? 'bg-blue-100 text-[#003E78]'
-                            : 'bg-emerald-100 text-emerald-800'
-                        }`}
-                      >
-                        {u.role}
-                      </span>
-                    </div>
-                    <p className="text-[10px] text-slate-500 font-mono mt-0.5">{u.employee_code}</p>
-                  </button>
-                );
-              })}
+              <button
+                type="button"
+                onClick={() => {
+                  setIdentifier('ULTRA-GER-001');
+                  setPassword('Ultra2026*Ger');
+                  setErrorMessage(null);
+                }}
+                className="text-left p-2 rounded border border-slate-200 bg-white hover:border-[#1E83EC] hover:bg-blue-50/40 transition cursor-pointer"
+              >
+                <div className="flex items-center justify-between">
+                  <span className="font-bold text-slate-800">Dr. Roberto Mendoza</span>
+                  <span className="text-[9px] px-1.5 py-0.2 rounded-[4px] font-bold uppercase bg-amber-100 text-amber-800">
+                    Gerente
+                  </span>
+                </div>
+                <p className="font-mono text-[10px] text-slate-500 mt-0.5">ULTRA-GER-001</p>
+              </button>
             </div>
-          </div>
+          </details>
 
           {/* Formulario de Login */}
           <form onSubmit={handleLogin} className="space-y-4">

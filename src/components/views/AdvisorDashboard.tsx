@@ -249,36 +249,23 @@ export const AdvisorDashboard: React.FC<AdvisorDashboardProps> = ({
   return (
     <div className="max-w-4xl mx-auto px-4 py-6 space-y-6">
       {/* 1. Greeting Card */}
-      <div className="card-ultracem p-5 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+      <div className="card-ultracem p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-xl font-bold text-[#003E78]">Buenos días, {user.name}</h1>
+          <div className="flex items-center gap-2">
+            <h1 className="text-xl font-bold text-[#003E78]">Buenos días, {user.name}</h1>
+            <span className="text-[10px] font-extrabold uppercase px-2 py-0.5 rounded-[4px] bg-blue-50 text-[#1E83EC] border border-blue-200">
+              {user.zone}
+            </span>
+          </div>
           <p className="text-xs text-[#4A5568] mt-0.5">
-            Asesor Comercial — Zona {user.zone} · Cartera asignada
+            Asesor Comercial · Cartera activa de {clients.length} cuentas clave
           </p>
         </div>
-        <div className="flex flex-wrap items-center gap-2">
-          <div className="flex items-center gap-2 bg-amber-50 border border-amber-200/80 px-3 py-1.5 rounded-[5px]">
+        <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 bg-gradient-to-r from-amber-50 to-amber-100/60 border border-amber-300/80 px-3.5 py-1.5 rounded-[5px] shadow-2xs">
             <Sparkles className="w-4 h-4 text-[#FFCA00]" />
             <span className="text-xs font-bold text-[#B7791F]">Fuerza Comercial Nivel Oro</span>
           </div>
-          {onOpenLeaderboard && (
-            <button
-              onClick={onOpenLeaderboard}
-              className="px-3 py-1.5 rounded-[5px] bg-[#003E78] hover:bg-[#002B54] text-white text-xs font-bold flex items-center gap-1.5 shadow-2xs transition-colors cursor-pointer"
-            >
-              <Trophy className="w-3.5 h-3.5 text-[#FFCA00]" />
-              <span>Tabla de Posiciones</span>
-            </button>
-          )}
-          {onOpenRewards && (
-            <button
-              onClick={onOpenRewards}
-              className="px-3 py-1.5 rounded-[5px] bg-[#FFCA00] hover:bg-amber-400 text-[#003E78] text-xs font-bold flex items-center gap-1.5 shadow-2xs transition-colors cursor-pointer"
-            >
-              <Gift className="w-3.5 h-3.5 fill-current" />
-              <span>Premios</span>
-            </button>
-          )}
         </div>
       </div>
 
@@ -305,9 +292,9 @@ export const AdvisorDashboard: React.FC<AdvisorDashboardProps> = ({
       <div className="flex justify-center pt-1">
         <button
           onClick={() => setIsModalOpen(true)}
-          className="w-full sm:w-auto px-8 py-3.5 bg-[#1E83EC] hover:bg-blue-600 active:scale-[0.98] text-white font-bold rounded-[5px] shadow-md flex items-center justify-center gap-2.5 text-sm transition-all"
+          className="w-full sm:w-auto px-8 py-3.5 bg-[#1E83EC] hover:bg-blue-600 active:scale-[0.98] text-white font-bold rounded-[5px] shadow-md hover:shadow-lg flex items-center justify-center gap-2.5 text-sm transition-all cursor-pointer"
         >
-          <PlusCircle className="w-5 h-5" />
+          <PlusCircle className="w-5 h-5 text-white" />
           <span>Registrar Venta de Cemento / Concreto</span>
         </button>
       </div>
@@ -323,10 +310,10 @@ export const AdvisorDashboard: React.FC<AdvisorDashboardProps> = ({
           </div>
 
           {/* Filter Chips */}
-          <div className="flex gap-1.5 overflow-x-auto pb-1 sm:pb-0">
+          <div className="flex items-center gap-1.5 overflow-x-auto pb-1 sm:pb-0">
             <button
               onClick={() => setFilterRecency('all')}
-              className={`px-3 py-1 text-xs font-semibold rounded-[5px] transition-all ${
+              className={`px-3 py-1.5 text-xs font-bold rounded-[5px] transition-all cursor-pointer ${
                 filterRecency === 'all'
                   ? 'bg-[#003E78] text-white shadow-xs'
                   : 'bg-white border border-[#E0E6ED] text-[#4A5568] hover:bg-slate-50'
@@ -336,33 +323,36 @@ export const AdvisorDashboard: React.FC<AdvisorDashboardProps> = ({
             </button>
             <button
               onClick={() => setFilterRecency('optimo')}
-              className={`px-3 py-1 text-xs font-semibold rounded-[5px] transition-all ${
+              className={`px-3 py-1.5 text-xs font-bold rounded-[5px] transition-all flex items-center gap-1.5 cursor-pointer ${
                 filterRecency === 'optimo'
-                  ? 'bg-[#003E78] text-white shadow-xs'
-                  : 'bg-emerald-50 text-emerald-800 border border-emerald-200 hover:bg-emerald-100'
+                  ? 'bg-emerald-700 text-white shadow-xs'
+                  : 'bg-white border border-[#E0E6ED] text-[#4A5568] hover:bg-slate-50'
               }`}
             >
-              Activos (&lt;15d)
+              <span className={`w-2 h-2 rounded-full ${filterRecency === 'optimo' ? 'bg-white' : 'bg-emerald-500'}`} />
+              <span>Activos (&lt;15d)</span>
             </button>
             <button
               onClick={() => setFilterRecency('alerta')}
-              className={`px-3 py-1 text-xs font-semibold rounded-[5px] transition-all ${
+              className={`px-3 py-1.5 text-xs font-bold rounded-[5px] transition-all flex items-center gap-1.5 cursor-pointer ${
                 filterRecency === 'alerta'
-                  ? 'bg-[#FFCA00] text-[#003E78] font-bold shadow-xs'
-                  : 'bg-amber-50 text-amber-900 border border-amber-200 hover:bg-amber-100'
+                  ? 'bg-amber-600 text-white shadow-xs'
+                  : 'bg-white border border-[#E0E6ED] text-[#4A5568] hover:bg-slate-50'
               }`}
             >
-              Alerta (16-30d)
+              <span className={`w-2 h-2 rounded-full ${filterRecency === 'alerta' ? 'bg-white' : 'bg-amber-500'}`} />
+              <span>Alerta (16-30d)</span>
             </button>
             <button
               onClick={() => setFilterRecency('critico')}
-              className={`px-3 py-1 text-xs font-semibold rounded-[5px] transition-all ${
+              className={`px-3 py-1.5 text-xs font-bold rounded-[5px] transition-all flex items-center gap-1.5 cursor-pointer ${
                 filterRecency === 'critico'
-                  ? 'bg-[#E53E3E] text-white shadow-xs'
-                  : 'bg-red-50 text-red-800 border border-red-200 hover:bg-red-100'
+                  ? 'bg-red-600 text-white shadow-xs'
+                  : 'bg-white border border-[#E0E6ED] text-[#4A5568] hover:bg-slate-50'
               }`}
             >
-              En Riesgo (&gt;30d)
+              <span className={`w-2 h-2 rounded-full ${filterRecency === 'critico' ? 'bg-white' : 'bg-red-500'}`} />
+              <span>En Riesgo (&gt;30d)</span>
             </button>
           </div>
         </div>

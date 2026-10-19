@@ -42,9 +42,9 @@ export const RecencyBadge: React.FC<RecencyBadgeProps> = ({ status = 'optimo', d
 
   return (
     <span
-      className={`inline-flex items-center gap-1.5 px-2 py-0.5 rounded-[4px] text-xs font-semibold border ${config.bg} ${config.text} ${config.border} ${className}`}
+      className={`inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-[4px] text-xs font-semibold border ${config.bg} ${config.text} ${config.border} ${className}`}
     >
-      <span className={`w-1.5 h-1.5 rounded-[1px] ${config.dot}`} />
+      <span className={`w-2 h-2 rounded-full shrink-0 ${config.dot}`} />
       {config.label}
     </span>
   );

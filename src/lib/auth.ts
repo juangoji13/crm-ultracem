@@ -122,63 +122,49 @@ export function clearSession(): void {
 }
 
 /**
- * Permisos RBAC Jerárquicos de Ultracem:
+ * Permisos RBAC de Ultracem (Modelo de 2 Roles):
  * 
- * 1. Gerente General:
- *    - Acceso total a analítica nacional y metas corporativas.
- *    - Crear asesores directamente y crear nuevos supervisores/gerentes.
- *    - Aprobar o rechazar solicitudes de asesores creados por supervisores.
- *    - Ascender o degradar roles (Asesor <-> Supervisor).
- *    - Revocar/suspender o reactivar credenciales de acceso.
+ * 1. Gerente Comercial ('gerente'):
+ *    - Auditoría y aprobación/rechazo de remisiones con validación de báscula y SLA 48h.
+ *    - Tablero de control ejecutivo, métricas consolidadas por zona/producto y exportación CSV.
+ *    - Gestión de la fuerza comercial y credenciales (crear asesores, suspender/reactivar acceso).
+ *    - Visualización del Ranking & Podio Nacional.
  * 
- * 2. Supervisor de Ventas:
- *    - Supervisión de remisiones de su zona asignada.
- *    - Solicitar creación de nuevos Asesores para su zona (estado pendiente_aprobacion).
- *    - NO puede autorizar directamente ni ascender/degradar personal.
- * 
- * 3. Asesor Comercial:
- *    - Registro de remisiones en campo.
- *    - Consulta de clientes y metas personales.
- *    - NO puede crear credenciales ni gestionar usuarios.
+ * 2. Asesor Comercial ('asesor'):
+ *    - Registro de remisiones en campo con foto de báscula y modo offline PWA.
+ *    - Cartera de clientes asignados y semáforo de recencia.
+ *    - Tabla de Posiciones / Ranking y Podio en tiempo real con indicador de distancia.
+ *    - Catálogo de Recompensas e incentivos comerciales con canje de Puntos Ultra.
+ *    - ENTORNO PROTEGIDO: Sin acceso ni visibilidad a credenciales ni gestión de otros usuarios.
  */
 export const RBAC = {
-  // Permite gestión directa y aprobación
-  canManageHierarchy: (user?: User | null): boolean => {
+  // Permite gestión de asesores y credenciales
+  canManageCredentials: (user?: User | null): boolean => {
     return user?.role === 'gerente';
   },
 
-  // Permite crear usuarios directamente activos
-  canCreateDirectUsers: (user?: User | null): boolean => {
+  // Permite crear asesores comerciales
+  canCreateAdvisors: (user?: User | null): boolean => {
     return user?.role === 'gerente';
   },
 
-  // Permite solicitar asesores (Supervisores y Gerentes)
-  canRequestAdvisors: (user?: User | null): boolean => {
-    return user?.role === 'supervisor' || user?.role === 'gerente';
-  },
-
-  // Permite aprobar o rechazar solicitudes pendientes
-  canApproveAdvisorRequests: (user?: User | null): boolean => {
-    return user?.role === 'gerente';
-  },
-
-  // Permite ascender o degradar de cargo
-  canPromoteDemote: (user?: User | null): boolean => {
-    return user?.role === 'gerente';
-  },
-
-  // Permite suspender o revocar credenciales
+  // Permite suspender o reactivar credenciales
   canRevokeCredentials: (user?: User | null): boolean => {
     return user?.role === 'gerente';
   },
 
-  // Permite aprobar o rechazar ventas
+  // Permite auditar, aprobar o rechazar ventas
   canReviewSales: (user?: User | null): boolean => {
-    return user?.role === 'supervisor' || user?.role === 'gerente';
+    return user?.role === 'gerente';
   },
 
-  // Permite registrar ventas
+  // Permite registrar ventas en campo
   canRegisterSales: (user?: User | null): boolean => {
     return user?.role === 'asesor';
+  },
+
+  // Permite ver métricas ejecutivas consolidadas
+  canViewExecutiveMetrics: (user?: User | null): boolean => {
+    return user?.role === 'gerente';
   },
 };

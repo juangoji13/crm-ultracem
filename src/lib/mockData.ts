@@ -18,7 +18,7 @@ export const INITIAL_USERS: User[] = [
     id: '22222222-2222-2222-2222-222222222222',
     email: 'mlopez@ultracem.co',
     name: 'María López',
-    role: 'supervisor',
+    role: 'gerente',
     zone: 'Atlántico',
     phone: '3104567890',
     avatar_url: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150',
