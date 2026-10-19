@@ -69,7 +69,7 @@ export const LeaderboardView: React.FC<LeaderboardViewProps> = ({
       {/* ========================================================================= */}
       {/* 1. HERO BANNER: RANKING COMERCIAL ULTRACEM */}
       {/* ========================================================================= */}
-      <div className="bg-gradient-to-r from-[#003E78] via-[#002B54] to-[#1E83EC] text-white p-5 sm:p-6 rounded-2xl shadow-md border border-[#002B54] flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+      <div className="bg-gradient-to-r from-[#003E78] via-[#002B54] to-[#1E83EC] text-white p-5 sm:p-6 rounded-xl shadow-md border border-[#002B54] flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
         <div className="space-y-1.5">
           <div className="flex items-center gap-2">
             <span className="px-2.5 py-0.5 rounded-[5px] bg-[#FFCA00] text-[#003E78] text-[10px] font-black uppercase tracking-wider">
@@ -229,7 +229,7 @@ export const LeaderboardView: React.FC<LeaderboardViewProps> = ({
             <div className="flex rounded-[5px] border border-[#E0E6ED] bg-slate-100 p-0.5">
               <button
                 onClick={() => setSortBy('volumen')}
-                className={`px-3 py-1 text-xs font-bold rounded-[4px] transition-all cursor-pointer ${
+                className={`px-3 py-1 text-xs font-bold rounded-[5px] transition-all cursor-pointer ${
                   sortBy === 'volumen'
                     ? 'bg-[#003E78] text-white shadow-2xs'
                     : 'text-slate-600 hover:text-slate-900'
@@ -239,7 +239,7 @@ export const LeaderboardView: React.FC<LeaderboardViewProps> = ({
               </button>
               <button
                 onClick={() => setSortBy('puntos')}
-                className={`px-3 py-1 text-xs font-bold rounded-[4px] transition-all cursor-pointer ${
+                className={`px-3 py-1 text-xs font-bold rounded-[5px] transition-all cursor-pointer ${
                   sortBy === 'puntos'
                     ? 'bg-[#003E78] text-white shadow-2xs'
                     : 'text-slate-600 hover:text-slate-900'

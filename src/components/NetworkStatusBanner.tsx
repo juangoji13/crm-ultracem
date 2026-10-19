@@ -75,7 +75,7 @@ export const NetworkStatusBanner: React.FC<NetworkStatusBannerProps> = ({ onSync
     <div className="w-full transition-all duration-200 sticky top-14 md:top-16 z-30 shadow-xs">
       {/* Offline State Banner (Yellow #FFCA00 - PRD Spec 1.4) */}
       {!isOnline && (
-        <div className="bg-[#FFCA00] text-[#003E78] px-4 py-2 flex items-center justify-between text-xs font-bold border-b border-amber-400">
+        <div className="bg-[#FFCA00] text-[#003E78] px-4 py-2 flex items-center justify-between text-xs font-bold border-b border-[#D97706]">
           <div className="flex items-center gap-2">
             <WifiOff className="w-4 h-4 text-[#003E78] shrink-0" />
             <span>
@@ -93,7 +93,7 @@ export const NetworkStatusBanner: React.FC<NetworkStatusBannerProps> = ({ onSync
 
       {/* Online but pending sync */}
       {isOnline && pendingCount > 0 && (
-        <div className="bg-blue-50 border-b border-blue-200 text-[#003E78] px-4 py-2 flex items-center justify-between text-xs font-semibold">
+        <div className="bg-blue-50 border-b border-[#E0E6ED] text-[#003E78] px-4 py-2 flex items-center justify-between text-xs font-semibold">
           <div className="flex items-center gap-2">
             <AlertTriangle className="w-4 h-4 text-amber-500 shrink-0" />
             <span>
@@ -103,7 +103,7 @@ export const NetworkStatusBanner: React.FC<NetworkStatusBannerProps> = ({ onSync
           <button
             onClick={triggerSync}
             disabled={isSyncing}
-            className="btn-ultracem-primary text-[11px] px-3.5 py-1 flex items-center gap-1.5 shrink-0 shadow-xs"
+            className="btn-ultracem-primary text-[11px] px-3.5 py-1 flex items-center gap-1.5 shrink-0 shadow-xs cursor-pointer"
           >
             <RefreshCw className={`w-3.5 h-3.5 ${isSyncing ? 'animate-spin' : ''}`} />
             <span>{isSyncing ? 'Sincronizando...' : 'Sincronizar ahora'}</span>

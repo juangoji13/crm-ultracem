@@ -381,7 +381,7 @@ export const AdvisorDashboard: React.FC<AdvisorDashboardProps> = ({
             >
               <div className="flex items-start justify-between gap-2 mb-2">
                 <div className="flex items-center gap-2">
-                  <div className="w-8 h-8 rounded-lg bg-blue-50 text-[#003E78] group-hover:bg-[#003E78] group-hover:text-white transition-colors flex items-center justify-center shrink-0">
+                  <div className="w-8 h-8 rounded-[5px] bg-blue-50 text-[#003E78] group-hover:bg-[#003E78] group-hover:text-white transition-colors flex items-center justify-center shrink-0">
                     <Building2 className="w-4 h-4" />
                   </div>
                   <div>
@@ -394,7 +394,7 @@ export const AdvisorDashboard: React.FC<AdvisorDashboardProps> = ({
                 <RecencyBadge status={client.recency_status} days={client.days_since_last_purchase} />
               </div>
 
-              <div className="text-xs text-slate-600 space-y-1.5 my-3 bg-slate-50/70 p-2.5 rounded-md border border-slate-100">
+              <div className="text-xs text-slate-600 space-y-1.5 my-3 bg-slate-50/70 p-2.5 rounded-[5px] border border-slate-100">
                 <p className="flex items-center gap-1.5">
                   <MapPin className="w-3.5 h-3.5 text-[#1E83EC] shrink-0" />
                   <span>{client.address}, {client.city}</span>
@@ -417,7 +417,7 @@ export const AdvisorDashboard: React.FC<AdvisorDashboardProps> = ({
                   {client.contact_phone && (
                     <a
                       href={`tel:${client.contact_phone}`}
-                      className="p-1.5 rounded-md text-slate-600 hover:text-[#003E78] hover:bg-slate-100 transition-colors"
+                      className="p-1.5 rounded-[5px] text-slate-600 hover:text-[#003E78] hover:bg-slate-100 transition-colors"
                       title="Llamar"
                     >
                       <Phone className="w-4 h-4" />
@@ -428,7 +428,7 @@ export const AdvisorDashboard: React.FC<AdvisorDashboardProps> = ({
                       href={`https://wa.me/${client.contact_whatsapp}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-1.5 rounded-md text-emerald-600 hover:bg-emerald-50 transition-colors"
+                      className="p-1.5 rounded-[5px] text-emerald-600 hover:bg-emerald-50 transition-colors"
                       title="WhatsApp"
                     >
                       <MessageCircle className="w-4 h-4" />
@@ -510,7 +510,7 @@ export const AdvisorDashboard: React.FC<AdvisorDashboardProps> = ({
               </div>
               <div className="text-right shrink-0">
                 <span
-                  className={`inline-block px-2 py-0.5 rounded text-[11px] font-bold ${
+                  className={`inline-block px-2 py-0.5 rounded-[4px] text-[11px] font-bold ${
                     sale.status === 'aprobada'
                       ? 'bg-emerald-100 text-emerald-800'
                       : sale.status === 'por_corregir'
@@ -526,7 +526,7 @@ export const AdvisorDashboard: React.FC<AdvisorDashboardProps> = ({
                     <button
                       type="button"
                       onClick={() => setSaleToCorrect(sale)}
-                      className="inline-flex items-center gap-1 px-2.5 py-1 bg-[#E53E3E] hover:bg-red-700 active:scale-95 text-white rounded-md text-[10px] font-bold shadow-2xs transition-all cursor-pointer"
+                      className="inline-flex items-center gap-1 px-2.5 py-1 bg-[#E53E3E] hover:bg-red-700 active:scale-95 text-white rounded-[5px] text-[10px] font-bold shadow-2xs transition-all cursor-pointer"
                     >
                       <RefreshCw className="w-3 h-3" />
                       <span>Corregir Venta</span>
@@ -548,7 +548,7 @@ export const AdvisorDashboard: React.FC<AdvisorDashboardProps> = ({
       {/* ========================================================================= */}
       {isModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-xs">
-          <div className="bg-white rounded-2xl w-full max-w-lg shadow-2xl overflow-hidden animate-in fade-in zoom-in-95 duration-150 max-h-[90vh] flex flex-col">
+          <div className="bg-white rounded-xl w-full max-w-lg shadow-2xl overflow-hidden animate-in fade-in zoom-in-95 duration-150 max-h-[90vh] flex flex-col border border-[#E0E6ED]">
             {/* Modal Header */}
             <div className="bg-[#003E78] text-white px-5 py-3.5 flex items-center justify-between">
               <div>
@@ -557,7 +557,7 @@ export const AdvisorDashboard: React.FC<AdvisorDashboardProps> = ({
               </div>
               <button
                 onClick={() => setIsModalOpen(false)}
-                className="text-white/80 hover:text-white p-1 rounded-md hover:bg-white/10"
+                className="text-white/80 hover:text-white p-1 rounded-[5px] hover:bg-white/10 cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -635,11 +635,11 @@ export const AdvisorDashboard: React.FC<AdvisorDashboardProps> = ({
                     className="input-ultracem flex-1 font-bold text-base"
                     required
                   />
-                  <div className="flex rounded-lg border border-[#E0E6ED] overflow-hidden bg-slate-100">
+                  <div className="flex rounded-[5px] border border-[#E0E6ED] overflow-hidden bg-slate-100">
                     <button
                       type="button"
                       onClick={() => setVolumeUnit('Ton')}
-                      className={`px-3 py-2 text-xs font-bold ${
+                      className={`px-3 py-2 text-xs font-bold cursor-pointer ${
                         volumeUnit === 'Ton' ? 'bg-[#003E78] text-white' : 'text-slate-600'
                       }`}
                     >
@@ -648,7 +648,7 @@ export const AdvisorDashboard: React.FC<AdvisorDashboardProps> = ({
                     <button
                       type="button"
                       onClick={() => setVolumeUnit('m3')}
-                      className={`px-3 py-2 text-xs font-bold ${
+                      className={`px-3 py-2 text-xs font-bold cursor-pointer ${
                         volumeUnit === 'm3' ? 'bg-[#003E78] text-white' : 'text-slate-600'
                       }`}
                     >
@@ -706,7 +706,7 @@ export const AdvisorDashboard: React.FC<AdvisorDashboardProps> = ({
                 >
                   {selectedFile ? (
                     <div className="space-y-2">
-                      <div className="flex items-center justify-between bg-white/90 p-2.5 rounded-lg border border-emerald-200 text-left">
+                      <div className="flex items-center justify-between bg-white/90 p-2.5 rounded-[5px] border border-emerald-200 text-left">
                         <div className="flex items-center gap-2.5 overflow-hidden">
                           {selectedFile.type.startsWith('image/') ? (
                             filePreviewUrl ? (
@@ -714,15 +714,15 @@ export const AdvisorDashboard: React.FC<AdvisorDashboardProps> = ({
                               <img
                                 src={filePreviewUrl}
                                 alt="Vista previa comprobante"
-                                className="w-12 h-12 rounded object-cover border border-slate-200 shrink-0"
+                                className="w-12 h-12 rounded-[4px] object-cover border border-slate-200 shrink-0"
                               />
                             ) : (
-                              <div className="w-12 h-12 rounded bg-emerald-100 flex items-center justify-center shrink-0 text-emerald-700">
+                              <div className="w-12 h-12 rounded-[4px] bg-emerald-100 flex items-center justify-center shrink-0 text-emerald-700">
                                 <ImageIcon className="w-6 h-6" />
                               </div>
                             )
                           ) : (
-                            <div className="w-12 h-12 rounded bg-red-100 flex items-center justify-center shrink-0 text-red-600">
+                            <div className="w-12 h-12 rounded-[4px] bg-red-100 flex items-center justify-center shrink-0 text-red-600">
                               <FileText className="w-6 h-6" />
                             </div>
                           )}
@@ -733,7 +733,7 @@ export const AdvisorDashboard: React.FC<AdvisorDashboardProps> = ({
                             <p className="text-[11px] text-slate-500">
                               {formatFileSize(selectedFile.size)} · {selectedFile.type.includes('pdf') ? 'Documento PDF' : 'Imagen'}
                             </p>
-                            <span className="inline-flex items-center gap-1 text-[10px] font-semibold text-emerald-700 bg-emerald-100/80 px-1.5 py-0.5 rounded">
+                            <span className="inline-flex items-center gap-1 text-[10px] font-semibold text-emerald-700 bg-emerald-100/80 px-1.5 py-0.5 rounded-[4px]">
                               <CheckCircle2 className="w-3 h-3 text-[#38A169]" /> Listo para subir
                             </span>
                           </div>
@@ -742,7 +742,7 @@ export const AdvisorDashboard: React.FC<AdvisorDashboardProps> = ({
                         <button
                           type="button"
                           onClick={handleRemoveFile}
-                          className="p-1 rounded-md text-red-500 hover:text-red-700 hover:bg-red-50 transition-colors ml-2 shrink-0"
+                          className="p-1 rounded-[5px] text-red-500 hover:text-red-700 hover:bg-red-50 transition-colors ml-2 shrink-0 cursor-pointer"
                           title="Eliminar y seleccionar otro archivo"
                         >
                           <X className="w-4 h-4" />
@@ -843,7 +843,7 @@ export const AdvisorDashboard: React.FC<AdvisorDashboardProps> = ({
       {/* SUCCESS MODAL (ONLINE & OFFLINE ADAPTIVE) */}
       {isSuccessModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/40 backdrop-blur-xs">
-          <div className="bg-white rounded-2xl p-6 text-center max-w-sm shadow-xl space-y-4 animate-in zoom-in-95 duration-150">
+          <div className="bg-white rounded-xl p-6 text-center max-w-sm shadow-xl space-y-4 animate-in zoom-in-95 duration-150 border border-[#E0E6ED]">
             <div
               className={`w-14 h-14 rounded-full flex items-center justify-center mx-auto shadow-sm ${
                 isOfflineSubmission

@@ -83,7 +83,7 @@ export const ClientDetailModal: React.FC<ClientDetailModalProps> = ({
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/50 backdrop-blur-xs animate-in fade-in duration-150">
       <div
-        className="bg-white rounded-2xl w-full max-w-2xl shadow-2xl overflow-hidden flex flex-col max-h-[92vh] border border-[#E0E6ED] animate-in zoom-in-95 duration-150"
+        className="bg-white rounded-xl w-full max-w-2xl shadow-2xl overflow-hidden flex flex-col max-h-[92vh] border border-[#E0E6ED] animate-in zoom-in-95 duration-150"
         role="dialog"
         aria-modal="true"
         aria-labelledby="client-modal-title"
@@ -93,7 +93,7 @@ export const ClientDetailModal: React.FC<ClientDetailModalProps> = ({
         {/* ===================================================================== */}
         <div className="bg-[#003E78] text-white px-5 py-4 flex items-center justify-between shrink-0 shadow-sm">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center border border-white/20">
+            <div className="w-10 h-10 rounded-[5px] bg-white/10 flex items-center justify-center border border-white/20">
               <Building2 className="w-5 h-5 text-[#FFCA00]" />
             </div>
             <div>
@@ -109,7 +109,7 @@ export const ClientDetailModal: React.FC<ClientDetailModalProps> = ({
           </div>
           <button
             onClick={onClose}
-            className="text-white/80 hover:text-white p-1.5 rounded-md hover:bg-white/10 transition-colors"
+            className="text-white/80 hover:text-white p-1.5 rounded-[5px] hover:bg-white/10 transition-colors cursor-pointer"
             aria-label="Cerrar modal"
           >
             <X className="w-5 h-5" />
@@ -121,9 +121,9 @@ export const ClientDetailModal: React.FC<ClientDetailModalProps> = ({
         {/* ===================================================================== */}
         <div className="p-5 overflow-y-auto space-y-5 text-slate-700 text-xs sm:text-sm">
           {/* Status & Recency Banner */}
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-3.5 bg-slate-50 rounded-xl border border-slate-200/80">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-3.5 bg-[#F4F6F9] rounded-xl border border-[#E0E6ED]">
             <div className="flex items-center gap-2.5">
-              <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider">
+              <span className="text-xs font-semibold text-[#4A5568] uppercase tracking-wider">
                 Semáforo de Recencia:
               </span>
               <RecencyBadge status={client.recency_status} days={client.days_since_last_purchase} />
@@ -134,7 +134,7 @@ export const ClientDetailModal: React.FC<ClientDetailModalProps> = ({
               {client.contact_phone && (
                 <a
                   href={`tel:${client.contact_phone}`}
-                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-[5px] border border-slate-300 bg-white text-slate-700 hover:text-[#003E78] hover:border-[#003E78] text-xs font-semibold transition-all shadow-2xs"
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-[5px] border border-[#E0E6ED] bg-white text-[#4A5568] hover:text-[#003E78] hover:border-[#003E78] text-xs font-semibold transition-all shadow-2xs"
                   title="Llamar al cliente"
                 >
                   <Phone className="w-3.5 h-3.5 text-[#003E78]" />
@@ -197,7 +197,7 @@ export const ClientDetailModal: React.FC<ClientDetailModalProps> = ({
                 <span>Producto Habitual</span>
               </div>
               <div className="flex items-center gap-2">
-                <span className="px-2.5 py-0.5 rounded-md bg-blue-50 text-[#003E78] font-bold text-xs border border-blue-200">
+                <span className="px-2.5 py-0.5 rounded-[4px] bg-blue-50 text-[#003E78] font-bold text-xs border border-blue-200">
                   {client.usual_product}
                 </span>
                 {client.last_purchase_volume && (
@@ -238,7 +238,7 @@ export const ClientDetailModal: React.FC<ClientDetailModalProps> = ({
           {/* HISTORIAL DE COMPRAS RECIENTES */}
           {/* =================================================================== */}
           <div className="space-y-3">
-            <div className="flex items-center justify-between border-b border-slate-200 pb-2">
+            <div className="flex items-center justify-between border-b border-[#E0E6ED] pb-2">
               <div className="flex items-center gap-2">
                 <FileText className="w-4 h-4 text-[#003E78]" />
                 <h3 className="font-bold text-xs sm:text-sm text-[#003E78] uppercase tracking-wide">
@@ -257,10 +257,10 @@ export const ClientDetailModal: React.FC<ClientDetailModalProps> = ({
                     key={sale.id}
                     className={`p-3 rounded-xl border transition-all ${
                       sale.status === 'aprobada'
-                        ? 'border-l-4 border-l-[#38A169] bg-white border-slate-200 shadow-2xs'
+                        ? 'border-l-4 border-l-[#38A169] bg-white border-[#E0E6ED] shadow-2xs'
                         : sale.status === 'por_corregir'
                         ? 'border-l-4 border-l-[#E53E3E] bg-red-50/20 border-red-200 shadow-2xs'
-                        : 'border-l-4 border-l-[#FFCA00] bg-white border-slate-200 shadow-2xs'
+                        : 'border-l-4 border-l-[#FFCA00] bg-white border-[#E0E6ED] shadow-2xs'
                     }`}
                   >
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
@@ -270,7 +270,7 @@ export const ClientDetailModal: React.FC<ClientDetailModalProps> = ({
                             {sale.document_number}
                           </span>
                           <span
-                            className={`px-2 py-0.5 rounded text-[10px] font-bold uppercase ${
+                            className={`px-2 py-0.5 rounded-[4px] text-[10px] font-bold uppercase ${
                               sale.status === 'aprobada'
                                 ? 'bg-emerald-100 text-[#38A169]'
                                 : sale.status === 'por_corregir'
@@ -300,7 +300,7 @@ export const ClientDetailModal: React.FC<ClientDetailModalProps> = ({
                     </div>
 
                     {sale.rejection_reason && (
-                      <div className="mt-2 text-xs bg-red-50 border border-red-200 rounded-md p-2 text-red-800">
+                      <div className="mt-2 text-xs bg-red-50 border border-red-200 rounded-[5px] p-2 text-red-800">
                         <p className="font-bold flex items-center gap-1 text-red-900">
                           <AlertCircle className="w-3.5 h-3.5 text-red-600" /> Motivo de corrección:
                         </p>
@@ -312,7 +312,7 @@ export const ClientDetailModal: React.FC<ClientDetailModalProps> = ({
               </div>
             ) : client.last_purchase_date ? (
               // Fallback with client last purchase info
-              <div className="p-3.5 rounded-xl border border-dashed border-slate-300 bg-slate-50 text-xs space-y-1">
+              <div className="p-3.5 rounded-xl border border-dashed border-[#E0E6ED] bg-[#F4F6F9] text-xs space-y-1">
                 <p className="font-semibold text-slate-700">Último despacho histórico registrado:</p>
                 <div className="flex items-center gap-1.5 text-slate-600">
                   <Package className="w-3.5 h-3.5 text-[#003E78]" />
@@ -323,7 +323,7 @@ export const ClientDetailModal: React.FC<ClientDetailModalProps> = ({
                 </p>
               </div>
             ) : (
-              <div className="text-center py-6 bg-slate-50 rounded-xl border border-dashed border-slate-200 text-slate-400">
+              <div className="text-center py-6 bg-[#F4F6F9] rounded-xl border border-dashed border-[#E0E6ED] text-slate-400">
                 <Clock className="w-6 h-6 mx-auto mb-1 text-slate-300" />
                 <p className="text-xs">No hay ventas registradas previamente para este cliente.</p>
               </div>
@@ -334,10 +334,10 @@ export const ClientDetailModal: React.FC<ClientDetailModalProps> = ({
         {/* ===================================================================== */}
         {/* FOOTER & ACCIONES PRINCIPALES */}
         {/* ===================================================================== */}
-        <div className="p-4 bg-slate-50 border-t border-[#E0E6ED] flex flex-col sm:flex-row items-center justify-between gap-3 shrink-0">
+        <div className="p-4 bg-[#F4F6F9] border-t border-[#E0E6ED] flex flex-col sm:flex-row items-center justify-between gap-3 shrink-0">
           <button
             onClick={onClose}
-            className="w-full sm:w-auto px-5 py-2.5 rounded-[5px] border border-slate-300 bg-white hover:bg-slate-100 text-slate-700 font-semibold text-xs transition-colors"
+            className="w-full sm:w-auto px-5 py-2.5 rounded-[5px] border border-[#E0E6ED] bg-white hover:bg-slate-100 text-[#4A5568] font-semibold text-xs transition-colors cursor-pointer"
           >
             Cerrar Ficha
           </button>

@@ -111,10 +111,10 @@ export const ManagerDashboard: React.FC<ManagerDashboardProps> = ({
           <span className="text-xs font-bold text-[#003E78] uppercase tracking-wider hidden sm:inline">
             Panel de Dirección:
           </span>
-          <div className="flex bg-[#F4F6F9] border border-[#E0E6ED] p-1 rounded-[6px] text-xs font-semibold">
+          <div className="flex bg-[#F4F6F9] border border-[#E0E6ED] p-1 rounded-[5px] text-xs font-semibold">
             <button
               onClick={() => setManagerView('audit')}
-              className={`px-3.5 py-1.5 rounded-[4px] transition-all flex items-center gap-2 cursor-pointer ${
+              className={`px-3.5 py-1.5 rounded-[5px] transition-all flex items-center gap-2 cursor-pointer ${
                 managerView === 'audit'
                   ? 'bg-[#003E78] text-white shadow-xs font-bold'
                   : 'text-[#4A5568] hover:text-[#003E78]'
@@ -124,7 +124,7 @@ export const ManagerDashboard: React.FC<ManagerDashboardProps> = ({
               <span>Auditoría de Ventas</span>
               {pendingSales.length > 0 && (
                 <span
-                  className={`text-[10px] font-black px-1.5 py-0.2 rounded-[3px] ${
+                  className={`text-[10px] font-black px-1.5 py-0.2 rounded-[4px] ${
                     managerView === 'audit'
                       ? 'bg-[#FFCA00] text-[#003E78]'
                       : 'bg-red-100 text-red-700'
@@ -136,7 +136,7 @@ export const ManagerDashboard: React.FC<ManagerDashboardProps> = ({
             </button>
             <button
               onClick={() => setManagerView('metrics')}
-              className={`px-3.5 py-1.5 rounded-[4px] transition-all flex items-center gap-2 cursor-pointer ${
+              className={`px-3.5 py-1.5 rounded-[5px] transition-all flex items-center gap-2 cursor-pointer ${
                 managerView === 'metrics'
                   ? 'bg-[#003E78] text-white shadow-xs font-bold'
                   : 'text-[#4A5568] hover:text-[#003E78]'
@@ -151,10 +151,10 @@ export const ManagerDashboard: React.FC<ManagerDashboardProps> = ({
         {/* Action button based on active sub-view */}
         {managerView === 'metrics' ? (
           <div className="flex items-center gap-2">
-            <div className="flex bg-[#F4F6F9] border border-[#E0E6ED] p-0.5 rounded-[6px] text-xs font-semibold">
+            <div className="flex bg-[#F4F6F9] border border-[#E0E6ED] p-0.5 rounded-[5px] text-xs font-semibold">
               <button
                 onClick={() => setSelectedPeriod('1w')}
-                className={`px-2.5 py-1 rounded-[4px] transition-all cursor-pointer ${
+                className={`px-2.5 py-1 rounded-[5px] transition-all cursor-pointer ${
                   selectedPeriod === '1w' ? 'bg-[#003E78] text-white shadow-xs font-bold' : 'text-[#4A5568]'
                 }`}
               >
@@ -162,7 +162,7 @@ export const ManagerDashboard: React.FC<ManagerDashboardProps> = ({
               </button>
               <button
                 onClick={() => setSelectedPeriod('15d')}
-                className={`px-2.5 py-1 rounded-[4px] transition-all cursor-pointer ${
+                className={`px-2.5 py-1 rounded-[5px] transition-all cursor-pointer ${
                   selectedPeriod === '15d' ? 'bg-[#003E78] text-white shadow-xs font-bold' : 'text-[#4A5568]'
                 }`}
               >
@@ -170,7 +170,7 @@ export const ManagerDashboard: React.FC<ManagerDashboardProps> = ({
               </button>
               <button
                 onClick={() => setSelectedPeriod('1m')}
-                className={`px-2.5 py-1 rounded-[4px] transition-all cursor-pointer ${
+                className={`px-2.5 py-1 rounded-[5px] transition-all cursor-pointer ${
                   selectedPeriod === '1m' ? 'bg-[#003E78] text-white shadow-xs font-bold' : 'text-[#4A5568]'
                 }`}
               >
@@ -178,7 +178,7 @@ export const ManagerDashboard: React.FC<ManagerDashboardProps> = ({
               </button>
               <button
                 onClick={() => setSelectedPeriod('all')}
-                className={`px-2.5 py-1 rounded-[4px] transition-all cursor-pointer ${
+                className={`px-2.5 py-1 rounded-[5px] transition-all cursor-pointer ${
                   selectedPeriod === 'all' ? 'bg-[#003E78] text-white shadow-xs font-bold' : 'text-[#4A5568]'
                 }`}
               >
@@ -228,7 +228,7 @@ export const ManagerDashboard: React.FC<ManagerDashboardProps> = ({
 
               {/* Turn Metrics Summary Strip */}
               <div className="grid grid-cols-3 gap-2 pt-1 pb-0.5">
-                <div className="bg-slate-50 border border-slate-200/80 rounded-lg p-2 text-center">
+                <div className="bg-slate-50 border border-slate-200/80 rounded-[5px] p-2 text-center">
                   <div className="flex items-center justify-center gap-1 text-[10px] text-slate-500 font-semibold mb-0.5">
                     <TrendingUp className="w-3 h-3 text-[#1E83EC]" />
                     <span>Validado</span>
@@ -238,7 +238,7 @@ export const ManagerDashboard: React.FC<ManagerDashboardProps> = ({
                   </p>
                 </div>
 
-                <div className="bg-amber-50/70 border border-amber-200/80 rounded-lg p-2 text-center">
+                <div className="bg-amber-50/70 border border-amber-200/80 rounded-[5px] p-2 text-center">
                   <div className="flex items-center justify-center gap-1 text-[10px] text-[#B7791F] font-semibold mb-0.5">
                     <Sparkles className="w-3 h-3 text-[#FFCA00]" />
                     <span>Puntos</span>
@@ -248,7 +248,7 @@ export const ManagerDashboard: React.FC<ManagerDashboardProps> = ({
                   </p>
                 </div>
 
-                <div className="bg-emerald-50/70 border border-emerald-200/80 rounded-lg p-2 text-center">
+                <div className="bg-emerald-50/70 border border-emerald-200/80 rounded-[5px] p-2 text-center">
                   <div className="flex items-center justify-center gap-1 text-[10px] text-emerald-700 font-semibold mb-0.5">
                     <ShieldCheck className="w-3 h-3 text-[#38A169]" />
                     <span>SLA Hoy</span>
@@ -373,33 +373,33 @@ export const ManagerDashboard: React.FC<ManagerDashboardProps> = ({
 
                   {/* Grid */}
                   <div className="grid grid-cols-2 sm:grid-cols-3 gap-3.5 text-xs">
-                    <div className="bg-slate-50 p-2.5 rounded-lg">
+                    <div className="bg-[#F4F6F9] p-2.5 rounded-[5px] border border-[#E0E6ED]">
                       <span className="text-slate-400 block font-medium">Cliente</span>
                       <span className="font-bold text-[#003E78]">{selectedSale.client_name}</span>
                     </div>
-                    <div className="bg-slate-50 p-2.5 rounded-lg">
+                    <div className="bg-[#F4F6F9] p-2.5 rounded-[5px] border border-[#E0E6ED]">
                       <span className="text-slate-400 block font-medium">Producto</span>
                       <span className="font-bold text-[#003E78]">{selectedSale.product_type}</span>
                     </div>
-                    <div className="bg-slate-50 p-2.5 rounded-lg">
+                    <div className="bg-[#F4F6F9] p-2.5 rounded-[5px] border border-[#E0E6ED]">
                       <span className="text-slate-400 block font-medium">Volumen Declarado</span>
                       <span className="font-bold text-[#003E78]">
                         {selectedSale.volume} {selectedSale.volume_unit}
                       </span>
                     </div>
-                    <div className="bg-slate-50 p-2.5 rounded-lg">
+                    <div className="bg-[#F4F6F9] p-2.5 rounded-[5px] border border-[#E0E6ED]">
                       <span className="text-slate-400 block font-medium">Valor Total</span>
                       <span className="font-bold text-[#003E78]">
                         ${(selectedSale.total_value_cop / 1000000).toFixed(2)}M COP
                       </span>
                     </div>
-                    <div className="bg-slate-50 p-2.5 rounded-lg">
+                    <div className="bg-[#F4F6F9] p-2.5 rounded-[5px] border border-[#E0E6ED]">
                       <span className="text-slate-400 block font-medium">Fecha de Envío</span>
                       <span className="font-semibold text-slate-800">
                         {new Date(selectedSale.submitted_at).toLocaleDateString()}
                       </span>
                     </div>
-                    <div className="bg-slate-50 p-2.5 rounded-lg">
+                    <div className="bg-[#F4F6F9] p-2.5 rounded-[5px] border border-[#E0E6ED]">
                       <span className="text-slate-400 block font-medium">Puntos a Acreditar</span>
                       <span className="font-bold text-[#B7791F]">
                         +{selectedSale.ultra_points_awarded || 125} Pts Ultra
@@ -430,7 +430,7 @@ export const ManagerDashboard: React.FC<ManagerDashboardProps> = ({
                     <img
                       src={selectedSale.receipt_url}
                       alt="Comprobante de despacho"
-                      className="max-h-64 object-contain rounded-md shadow-xs"
+                      className="max-h-64 object-contain rounded-[5px] shadow-xs"
                     />
                   </div>
                   <p className="text-[11px] text-slate-400 italic text-center">
@@ -440,7 +440,7 @@ export const ManagerDashboard: React.FC<ManagerDashboardProps> = ({
 
                 {/* Decision Actions Card */}
                 <div className="card-ultracem p-5 space-y-4">
-                  <div className="bg-amber-50 border border-amber-200/80 p-3 rounded-lg flex items-center justify-between text-xs">
+                  <div className="bg-amber-50 border border-amber-200/80 p-3 rounded-[5px] flex items-center justify-between text-xs">
                     <div className="flex items-center gap-2">
                       <Award className="w-5 h-5 text-[#FFCA00]" />
                       <div>
@@ -510,7 +510,7 @@ export const ManagerDashboard: React.FC<ManagerDashboardProps> = ({
                         </button>
                         <button
                           onClick={handleReject}
-                          className="bg-[#E53E3E] hover:bg-red-700 text-white font-bold text-xs px-4 py-1.5 rounded-[4px] transition-colors cursor-pointer"
+                          className="bg-[#E53E3E] hover:bg-red-700 text-white font-bold text-xs px-4 py-1.5 rounded-[5px] transition-colors cursor-pointer"
                         >
                           Confirmar Rechazo
                         </button>
@@ -607,8 +607,8 @@ export const ManagerDashboard: React.FC<ManagerDashboardProps> = ({
                     <span>Cemento Gris (Uso General y Estructural)</span>
                     <span className="text-[#003E78]">12,200 Ton (66%)</span>
                   </div>
-                  <div className="w-full bg-[#E0E6ED] h-2.5 rounded-[4px] overflow-hidden">
-                    <div className="h-full bg-[#003E78] rounded-[4px]" style={{ width: '66%' }} />
+                  <div className="w-full bg-[#E0E6ED] h-2.5 rounded-[5px] overflow-hidden">
+                    <div className="h-full bg-[#003E78] rounded-[5px]" style={{ width: '66%' }} />
                   </div>
                 </div>
 
@@ -618,8 +618,8 @@ export const ManagerDashboard: React.FC<ManagerDashboardProps> = ({
                     <span>Concreto Premezclado</span>
                     <span className="text-[#1E83EC]">3,850 m³ (21%)</span>
                   </div>
-                  <div className="w-full bg-[#E0E6ED] h-2.5 rounded-[4px] overflow-hidden">
-                    <div className="h-full bg-[#1E83EC] rounded-[4px]" style={{ width: '21%' }} />
+                  <div className="w-full bg-[#E0E6ED] h-2.5 rounded-[5px] overflow-hidden">
+                    <div className="h-full bg-[#1E83EC] rounded-[5px]" style={{ width: '21%' }} />
                   </div>
                 </div>
 
@@ -629,8 +629,8 @@ export const ManagerDashboard: React.FC<ManagerDashboardProps> = ({
                     <span>Mezcla Lista &amp; Morteros</span>
                     <span className="text-slate-600">1,400 Ton (8%)</span>
                   </div>
-                  <div className="w-full bg-[#E0E6ED] h-2.5 rounded-[4px] overflow-hidden">
-                    <div className="h-full bg-slate-500 rounded-[4px]" style={{ width: '8%' }} />
+                  <div className="w-full bg-[#E0E6ED] h-2.5 rounded-[5px] overflow-hidden">
+                    <div className="h-full bg-slate-500 rounded-[5px]" style={{ width: '8%' }} />
                   </div>
                 </div>
 
@@ -640,8 +640,8 @@ export const ManagerDashboard: React.FC<ManagerDashboardProps> = ({
                     <span>Pegantes Cerámicos</span>
                     <span className="text-[#B7791F]">1,000 Ton (5%)</span>
                   </div>
-                  <div className="w-full bg-[#E0E6ED] h-2.5 rounded-[4px] overflow-hidden">
-                    <div className="h-full bg-[#FFCA00] rounded-[4px]" style={{ width: '5%' }} />
+                  <div className="w-full bg-[#E0E6ED] h-2.5 rounded-[5px] overflow-hidden">
+                    <div className="h-full bg-[#FFCA00] rounded-[5px]" style={{ width: '5%' }} />
                   </div>
                 </div>
               </div>
@@ -651,21 +651,21 @@ export const ManagerDashboard: React.FC<ManagerDashboardProps> = ({
             <div className="lg:col-span-5 card-ultracem p-5 space-y-4">
               <h2 className="text-sm font-bold text-[#003E78]">Cumplimiento por Zonas</h2>
               <div className="space-y-3.5 text-xs">
-                <div className="flex items-center justify-between p-2.5 rounded-lg bg-slate-50">
+                <div className="flex items-center justify-between p-2.5 rounded-[5px] bg-[#F4F6F9] border border-[#E0E6ED]">
                   <div>
                     <p className="font-bold text-[#003E78]">Zona Atlántico</p>
                     <p className="text-[11px] text-slate-500">Líder: Milena Ospino</p>
                   </div>
                   <span className="font-extrabold text-[#38A169] text-sm">92%</span>
                 </div>
-                <div className="flex items-center justify-between p-2.5 rounded-lg bg-slate-50">
+                <div className="flex items-center justify-between p-2.5 rounded-[5px] bg-[#F4F6F9] border border-[#E0E6ED]">
                   <div>
                     <p className="font-bold text-[#003E78]">Zona Bolívar</p>
                     <p className="text-[11px] text-slate-500">Líder: Adriana Anaya</p>
                   </div>
                   <span className="font-extrabold text-[#1E83EC] text-sm">84%</span>
                 </div>
-                <div className="flex items-center justify-between p-2.5 rounded-lg bg-slate-50">
+                <div className="flex items-center justify-between p-2.5 rounded-[5px] bg-[#F4F6F9] border border-[#E0E6ED]">
                   <div>
                     <p className="font-bold text-[#003E78]">Zona Córdoba</p>
                     <p className="text-[11px] text-slate-500">Líder: Hichel Espitia</p>

@@ -52,7 +52,7 @@ export const NotificationDrawer: React.FC<NotificationDrawerProps> = ({
             </div>
             <button
               onClick={onClose}
-              className="text-white/80 hover:text-white p-1.5 rounded-md hover:bg-white/10 transition-colors"
+              className="text-white/80 hover:text-white p-1.5 rounded-[5px] hover:bg-white/10 transition-colors cursor-pointer"
               aria-label="Cerrar"
             >
               <X className="w-5 h-5" />
@@ -63,7 +63,7 @@ export const NotificationDrawer: React.FC<NotificationDrawerProps> = ({
           <div className="bg-white border-b border-[#E0E6ED] px-4 py-2.5 flex gap-1.5 overflow-x-auto shrink-0">
             <button
               onClick={() => setActiveTab('all')}
-              className={`px-3 py-1 rounded-[5px] text-xs font-semibold transition-all ${
+              className={`px-3 py-1 rounded-[5px] text-xs font-semibold transition-all cursor-pointer ${
                 activeTab === 'all'
                   ? 'bg-[#003E78] text-white shadow-xs'
                   : 'bg-[#F4F6F9] border border-[#E0E6ED] text-[#4A5568] hover:bg-slate-200'
@@ -73,7 +73,7 @@ export const NotificationDrawer: React.FC<NotificationDrawerProps> = ({
             </button>
             <button
               onClick={() => setActiveTab('aprobadas')}
-              className={`px-3 py-1 rounded-[5px] text-xs font-semibold transition-all ${
+              className={`px-3 py-1 rounded-[5px] text-xs font-semibold transition-all cursor-pointer ${
                 activeTab === 'aprobadas'
                   ? 'bg-[#003E78] text-white shadow-xs'
                   : 'bg-[#F4F6F9] border border-[#E0E6ED] text-[#4A5568] hover:bg-slate-200'
@@ -83,18 +83,18 @@ export const NotificationDrawer: React.FC<NotificationDrawerProps> = ({
             </button>
             <button
               onClick={() => setActiveTab('correccion')}
-              className={`px-3 py-1 rounded-[5px] text-xs font-semibold transition-all flex items-center gap-1.5 ${
+              className={`px-3 py-1 rounded-[5px] text-xs font-semibold transition-all flex items-center gap-1.5 cursor-pointer ${
                 activeTab === 'correccion'
                   ? 'bg-[#003E78] text-white shadow-xs'
                   : 'bg-[#F4F6F9] border border-[#E0E6ED] text-[#4A5568] hover:bg-slate-200'
               }`}
             >
-              <span className="w-1.5 h-1.5 rounded-[1px] bg-[#E53E3E]" />
+              <span className="w-1.5 h-1.5 rounded-[2px] bg-[#E53E3E]" />
               Por Corregir
             </button>
             <button
               onClick={() => setActiveTab('metas')}
-              className={`px-3 py-1 rounded-[5px] text-xs font-semibold transition-all ${
+              className={`px-3 py-1 rounded-[5px] text-xs font-semibold transition-all cursor-pointer ${
                 activeTab === 'metas'
                   ? 'bg-[#003E78] text-white shadow-xs'
                   : 'bg-[#F4F6F9] border border-[#E0E6ED] text-[#4A5568] hover:bg-slate-200'
@@ -115,7 +115,7 @@ export const NotificationDrawer: React.FC<NotificationDrawerProps> = ({
               filteredNotifications.map((notif) => (
                 <div
                   key={notif.id}
-                  className={`bg-white rounded-lg p-4 shadow-xs border border-[#E0E6ED] relative transition-all ${
+                  className={`bg-white rounded-xl p-4 shadow-xs border border-[#E0E6ED] relative transition-all ${
                     notif.type === 'aprobacion'
                       ? 'border-l-4 border-l-[#38A169]'
                       : notif.type === 'rechazo'

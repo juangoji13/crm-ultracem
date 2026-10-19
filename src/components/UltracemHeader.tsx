@@ -13,6 +13,7 @@ import {
   User as UserIcon,
   MapPin,
   KeyRound,
+  Palette,
 } from 'lucide-react';
 import { User, NotificationItem } from '@/lib/types';
 import { NotificationDrawer } from './NotificationDrawer';
@@ -237,6 +238,17 @@ export const UltracemHeader: React.FC<UltracemHeaderProps> = ({
                     </button>
                   </div>
                 )}
+
+                {/* Enlace Oficial a la Guía de Marca */}
+                <div className="p-1.5 border-b border-[#E0E6ED]">
+                  <a
+                    href="/guia-de-marca"
+                    className="w-full px-3 py-2 text-left flex items-center gap-2.5 text-xs text-[#003E78] hover:bg-blue-50 rounded-lg transition-colors cursor-pointer font-bold"
+                  >
+                    <Palette className="w-4 h-4 text-[#1E83EC]" />
+                    <span>Guía de Marca &amp; UI</span>
+                  </a>
+                </div>
 
                 {/* Cerrar Sesión Corporativa */}
                 <div className="p-1.5 bg-slate-50/50">

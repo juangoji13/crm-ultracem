@@ -32,10 +32,12 @@ export const ProgressBar: React.FC<ProgressBarProps> = ({
       )}
 
       {/* Track and Fill bar */}
-      <div className="w-full bg-[#E0E6ED] h-3 rounded-[4px] overflow-hidden relative">
+      <div className="w-full bg-[#E0E6ED] h-3 rounded-[5px] overflow-hidden relative">
         <div
-          className={`h-full rounded-[4px] transition-all duration-300 ease-out ${
-            isComplete ? 'bg-[#FFCA00]' : 'bg-[#1E83EC]'
+          className={`h-full rounded-[5px] transition-all duration-300 ease-out ${
+            isComplete
+              ? 'bg-[#FFCA00]'
+              : 'bg-gradient-to-r from-[#1E83EC] to-[#FFCA00]'
           }`}
           style={{ width: `${percentage}%` }}
         />

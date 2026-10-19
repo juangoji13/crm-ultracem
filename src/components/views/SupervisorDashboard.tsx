@@ -99,7 +99,7 @@ export const SupervisorDashboard: React.FC<SupervisorDashboardProps> = ({
 
           {/* TURN METRICS SUMMARY STRIP (SEMANA 3) */}
           <div className="grid grid-cols-3 gap-2 pt-1 pb-0.5">
-            <div className="bg-slate-50 border border-slate-200/80 rounded-lg p-2 text-center">
+            <div className="bg-slate-50 border border-slate-200/80 rounded-[5px] p-2 text-center">
               <div className="flex items-center justify-center gap-1 text-[10px] text-slate-500 font-semibold mb-0.5">
                 <TrendingUp className="w-3 h-3 text-[#1E83EC]" />
                 <span>Validado</span>
@@ -109,7 +109,7 @@ export const SupervisorDashboard: React.FC<SupervisorDashboardProps> = ({
               </p>
             </div>
 
-            <div className="bg-amber-50/70 border border-amber-200/80 rounded-lg p-2 text-center">
+            <div className="bg-amber-50/70 border border-amber-200/80 rounded-[5px] p-2 text-center">
               <div className="flex items-center justify-center gap-1 text-[10px] text-[#B7791F] font-semibold mb-0.5">
                 <Sparkles className="w-3 h-3 text-[#FFCA00]" />
                 <span>Puntos</span>
@@ -119,7 +119,7 @@ export const SupervisorDashboard: React.FC<SupervisorDashboardProps> = ({
               </p>
             </div>
 
-            <div className="bg-emerald-50/70 border border-emerald-200/80 rounded-lg p-2 text-center">
+            <div className="bg-emerald-50/70 border border-emerald-200/80 rounded-[5px] p-2 text-center">
               <div className="flex items-center justify-center gap-1 text-[10px] text-emerald-700 font-semibold mb-0.5">
                 <ShieldCheck className="w-3 h-3 text-[#38A169]" />
                 <span>SLA Hoy</span>
@@ -246,33 +246,33 @@ export const SupervisorDashboard: React.FC<SupervisorDashboardProps> = ({
 
               {/* Data Grid */}
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-3.5 text-xs">
-                <div className="bg-slate-50 p-2.5 rounded-lg">
+                <div className="bg-[#F4F6F9] p-2.5 rounded-[5px] border border-[#E0E6ED]">
                   <span className="text-slate-400 block font-medium">Cliente</span>
                   <span className="font-bold text-[#003E78]">{selectedSale.client_name}</span>
                 </div>
-                <div className="bg-slate-50 p-2.5 rounded-lg">
+                <div className="bg-[#F4F6F9] p-2.5 rounded-[5px] border border-[#E0E6ED]">
                   <span className="text-slate-400 block font-medium">Producto</span>
                   <span className="font-bold text-[#003E78]">{selectedSale.product_type}</span>
                 </div>
-                <div className="bg-slate-50 p-2.5 rounded-lg">
+                <div className="bg-[#F4F6F9] p-2.5 rounded-[5px] border border-[#E0E6ED]">
                   <span className="text-slate-400 block font-medium">Volumen Declarado</span>
                   <span className="font-bold text-[#003E78]">
                     {selectedSale.volume} {selectedSale.volume_unit}
                   </span>
                 </div>
-                <div className="bg-slate-50 p-2.5 rounded-lg">
+                <div className="bg-[#F4F6F9] p-2.5 rounded-[5px] border border-[#E0E6ED]">
                   <span className="text-slate-400 block font-medium">Valor Total</span>
                   <span className="font-bold text-[#003E78]">
                     ${(selectedSale.total_value_cop / 1000000).toFixed(2)}M COP
                   </span>
                 </div>
-                <div className="bg-slate-50 p-2.5 rounded-lg">
+                <div className="bg-[#F4F6F9] p-2.5 rounded-[5px] border border-[#E0E6ED]">
                   <span className="text-slate-400 block font-medium">Fecha de Envío</span>
                   <span className="font-semibold text-slate-800">
                     {new Date(selectedSale.submitted_at).toLocaleDateString()}
                   </span>
                 </div>
-                <div className="bg-slate-50 p-2.5 rounded-lg">
+                <div className="bg-[#F4F6F9] p-2.5 rounded-[5px] border border-[#E0E6ED]">
                   <span className="text-slate-400 block font-medium">Puntos a Acreditar</span>
                   <span className="font-bold text-[#B7791F]">+125 Puntos Ultra</span>
                 </div>
@@ -302,7 +302,7 @@ export const SupervisorDashboard: React.FC<SupervisorDashboardProps> = ({
                 <img
                   src={selectedSale.receipt_url}
                   alt="Comprobante de despacho"
-                  className="max-h-64 object-contain rounded-md shadow-xs"
+                  className="max-h-64 object-contain rounded-[5px] shadow-xs"
                 />
               </div>
               <p className="text-[11px] text-slate-400 italic text-center">
@@ -312,7 +312,7 @@ export const SupervisorDashboard: React.FC<SupervisorDashboardProps> = ({
 
             {/* Bottom Decision & Gamification Banner */}
             <div className="card-ultracem p-5 space-y-4">
-              <div className="bg-amber-50 border border-amber-200/80 p-3 rounded-lg flex items-center justify-between text-xs">
+              <div className="bg-amber-50 border border-amber-200/80 p-3 rounded-[5px] flex items-center justify-between text-xs">
                 <div className="flex items-center gap-2">
                   <Award className="w-5 h-5 text-[#FFCA00]" />
                   <div>
@@ -328,14 +328,14 @@ export const SupervisorDashboard: React.FC<SupervisorDashboardProps> = ({
               <div className="grid grid-cols-2 gap-3 pt-1">
                 <button
                   onClick={handleApprove}
-                  className="btn-ultracem-primary py-3 text-xs flex items-center justify-center gap-2 shadow-sm uppercase tracking-wider"
+                  className="btn-ultracem-primary py-3 text-xs flex items-center justify-center gap-2 shadow-sm uppercase tracking-wider cursor-pointer"
                 >
                   <CheckCircle2 className="w-4 h-4" />
                   Aprobar Venta
                 </button>
                 <button
                   onClick={() => setIsRejectOpen(!isRejectOpen)}
-                  className="btn-ultracem-secondary py-3 text-xs flex items-center justify-center gap-2 uppercase tracking-wider hover:border-red-500 hover:text-red-700"
+                  className="btn-ultracem-secondary py-3 text-xs flex items-center justify-center gap-2 uppercase tracking-wider hover:border-red-500 hover:text-red-700 cursor-pointer"
                 >
                   <XCircle className="w-4 h-4" />
                   Rechazar Venta
@@ -376,13 +376,13 @@ export const SupervisorDashboard: React.FC<SupervisorDashboardProps> = ({
                   <div className="flex justify-end gap-2 pt-1">
                     <button
                       onClick={() => setIsRejectOpen(false)}
-                      className="px-3 py-1.5 text-xs text-slate-500 hover:underline"
+                      className="px-3 py-1.5 text-xs text-slate-500 hover:underline cursor-pointer"
                     >
                       Cancelar
                     </button>
                     <button
                       onClick={handleReject}
-                      className="bg-[#E53E3E] hover:bg-red-700 text-white font-bold text-xs px-4 py-1.5 rounded-[3px] transition-colors"
+                      className="bg-[#E53E3E] hover:bg-red-700 text-white font-bold text-xs px-4 py-1.5 rounded-[5px] transition-colors cursor-pointer"
                     >
                       Confirmar Rechazo
                     </button>
